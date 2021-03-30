@@ -1,0 +1,221 @@
+BD LAB 23 Mar
+
+> show dbs
+Program1  0.000GB
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+myDB      0.000GB
+> use Company
+switched to db Company
+> db.createCollection("empdetails")
+{ "ok" : 1 }
+> db.empdetails.insert({fname: "Rohan", lname: "Sharma", age: 26, email: "rohans@gmail.com", phone: 9007080890, experience: 5})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.find()
+{ "_id" : ObjectId("6059b8c1ccc2d4c433544803"), "fname" : "Rohan", "lname" : "Sharma", "age" : 26, "email" : "rohans@gmail.com", "phone" : 9007080890, "experience" : 5 }
+> db.empdetails.insert({fname: "Mohan", lname: "Sharma", age: 28, email: "mohans@gmail.com", phone: 9107080890, experience: 6})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "Raju", lname: "Singh", age: 38, email: "raju@gmail.com", phone: 9117280890, experience: 12})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "Salman", lname: "Singh", age: 58, email: "sallu@gmail.com", phone: 8117280890, experience: 1})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "Shahrukh", lname: "Singh", age: 58, email: "srk@gmail.com", phone: 8117980890, experience: 11})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "John", lname: "Abhinav", age: 28, email: "jabhinav@gmail.com", phone: 7117980890, experience: 3})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "John", lname: "Shukla", age: 18, email: "jhukla@gmail.com", phone: 9917980890, experience: 1})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "Monty", lname: "Shukla", age: 25, email: "mhukla@gmail.com", phone: 9997980890, experience: 4})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "Monty", lname: "Rhodes", age: 25, email: "mhodes@gmail.com", phone: 9996680890, experience: 6})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.insert({fname: "Adarsh", lname: "Hegde", age: 20, email: "ahegde@gmail.com", phone: 8886680890, experience: 2})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.find().pretty()
+{
+        "_id" : ObjectId("6059b8c1ccc2d4c433544803"),
+        "fname" : "Rohan",
+        "lname" : "Sharma",
+        "age" : 26,
+        "email" : "rohans@gmail.com",
+        "phone" : 9007080890,
+        "experience" : 5
+}
+{
+        "_id" : ObjectId("6059b8eeccc2d4c433544804"),
+        "fname" : "Mohan",
+        "lname" : "Sharma",
+        "age" : 28,
+        "email" : "mohans@gmail.com",
+        "phone" : 9107080890,
+        "experience" : 6
+}
+{
+        "_id" : ObjectId("6059b920ccc2d4c433544805"),
+        "fname" : "Raju",
+        "lname" : "Singh",
+        "age" : 38,
+        "email" : "raju@gmail.com",
+        "phone" : 9117280890,
+        "experience" : 12
+}
+{
+        "_id" : ObjectId("6059b946ccc2d4c433544806"),
+        "fname" : "Salman",
+        "lname" : "Singh",
+        "age" : 58,
+        "email" : "sallu@gmail.com",
+        "phone" : 8117280890,
+        "experience" : 1
+}
+{
+        "_id" : ObjectId("6059b96cccc2d4c433544807"),
+        "fname" : "Shahrukh",
+        "lname" : "Singh",
+        "age" : 58,
+        "email" : "srk@gmail.com",
+        "phone" : 8117980890,
+        "experience" : 11
+}
+{
+        "_id" : ObjectId("6059b993ccc2d4c433544808"),
+        "fname" : "John",
+        "lname" : "Abhinav",
+        "age" : 28,
+        "email" : "jabhinav@gmail.com",
+        "phone" : 7117980890,
+        "experience" : 3
+}
+{
+        "_id" : ObjectId("6059b9b6ccc2d4c433544809"),
+        "fname" : "John",
+        "lname" : "Shukla",
+        "age" : 18,
+        "email" : "jhukla@gmail.com",
+        "phone" : 9917980890,
+        "experience" : 1
+}
+{
+        "_id" : ObjectId("6059b9d1ccc2d4c43354480a"),
+        "fname" : "Monty",
+        "lname" : "Shukla",
+        "age" : 25,
+        "email" : "mhukla@gmail.com",
+        "phone" : 9997980890,
+        "experience" : 4
+}
+{
+        "_id" : ObjectId("6059b9f0ccc2d4c43354480b"),
+        "fname" : "Monty",
+        "lname" : "Rhodes",
+        "age" : 25,
+        "email" : "mhodes@gmail.com",
+        "phone" : 9996680890,
+        "experience" : 6
+}
+{
+        "_id" : ObjectId("6059ba21ccc2d4c43354480c"),
+        "fname" : "Adarsh",
+        "lname" : "Hegde",
+        "age" : 20,
+        "email" : "ahegde@gmail.com",
+        "phone" : 8886680890,
+        "experience" : 2
+}
+> db.createCollection("test")
+{ "ok" : 1 }
+> db.test.insertMany([{_id: 1, name: "First"}, {_id: 2, name: "Second"}, {_id: 3, name: "Third"}, {_id: 4, name: "Fourth}])
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:121
+> db.test.insertMany([{_id: 1, name: "First"}, {_id: 2, name: "Second"}, {_id: 3, name: "Third"}, {_id: 4, name: "Fourth"}])
+{ "acknowledged" : true, "insertedIds" : [ 1, 2, 3, 4 ] }
+> db.test.find().pretty()
+{ "_id" : 1, "name" : "First" }
+{ "_id" : 2, "name" : "Second" }
+{ "_id" : 3, "name" : "Third" }
+{ "_id" : 4, "name" : "Fourth" }
+> drop test
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:5
+> db.drop("test")
+uncaught exception: TypeError: db.drop is not a function :
+@(shell):1:1
+> db.test.drop()
+true
+> db.empdetails.save({fname: "Rachel", lname: "Smith", age: 25, email: "rachel@gmail.com", phone: 9999993637, experience: 5})
+WriteResult({ "nInserted" : 1 })
+> db.empdetails.save({_id: 11, fname: "Rachel", lname: "Smith", age: 25, email: "rachel@gmail.com", phone: 9999993637, experience: 5})
+WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 11 })
+> db.empdetails.find({name: "Rachel"})
+> db.empdetails.find({fname: "Rachel"})
+{ "_id" : ObjectId("6059bfb6ccc2d4c43354480d"), "fname" : "Rachel", "lname" : "Smith", "age" : 25, "email" : "rachel@gmail.com", "phone" : 9999993637, "experience" : 5 }
+{ "_id" : 11, "fname" : "Rachel", "lname" : "Smith", "age" : 25, "email" : "rachel@gmail.com", "phone" : 9999993637, "experience" : 5 }
+> db.empdetails.deleteOne({_id: 11})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.empdetails.find({lname: "Smith", experience: 5})
+{ "_id" : ObjectId("6059bfb6ccc2d4c43354480d"), "fname" : "Rachel", "lname" : "Smith", "age" : 25, "email" : "rachel@gmail.com", "phone" : 9999993637, "experience" : 5 }
+> db.empdetails.find($or: {experience: 5, experience: 6}})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:22
+> db.empdetails.find($or: {experience: 5, experience: 6})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:22
+> db.empdetails.find($or: {experience: 5, experience: 6}))
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:22
+> db.empdetails.find({$or: {experience: 5, experience: 6}})
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "$or must be an array",
+        "code" : 2,
+        "codeName" : "BadValue"
+}
+> db.empdetails.find({$or: [experience: 5, experience: 6]})
+uncaught exception: SyntaxError: missing ] after element list :
+@(shell):1:36
+> db.empdetails.find({$or: [{experience: 5, experience: 6}]})
+{ "_id" : ObjectId("6059b8eeccc2d4c433544804"), "fname" : "Mohan", "lname" : "Sharma", "age" : 28, "email" : "mohans@gmail.com", "phone" : 9107080890, "experience" : 6 }
+{ "_id" : ObjectId("6059b9f0ccc2d4c43354480b"), "fname" : "Monty", "lname" : "Rhodes", "age" : 25, "email" : "mhodes@gmail.com", "phone" : 9996680890, "experience" : 6 }
+> db.empdetails.find({$or: [{experience: 5},{experience: 6}]})
+{ "_id" : ObjectId("6059b8c1ccc2d4c433544803"), "fname" : "Rohan", "lname" : "Sharma", "age" : 26, "email" : "rohans@gmail.com", "phone" : 9007080890, "experience" : 5 }
+{ "_id" : ObjectId("6059b8eeccc2d4c433544804"), "fname" : "Mohan", "lname" : "Sharma", "age" : 28, "email" : "mohans@gmail.com", "phone" : 9107080890, "experience" : 6 }
+{ "_id" : ObjectId("6059b9f0ccc2d4c43354480b"), "fname" : "Monty", "lname" : "Rhodes", "age" : 25, "email" : "mhodes@gmail.com", "phone" : 9996680890, "experience" : 6 }
+{ "_id" : ObjectId("6059bfb6ccc2d4c43354480d"), "fname" : "Rachel", "lname" : "Smith", "age" : 25, "email" : "rachel@gmail.com", "phone" : 9999993637, "experience" : 5 }
+> db.empdetails.find({$or: [{experience: 5},{experience: 6}]}).pretty()
+{
+        "_id" : ObjectId("6059b8c1ccc2d4c433544803"),
+        "fname" : "Rohan",
+        "lname" : "Sharma",
+        "age" : 26,
+        "email" : "rohans@gmail.com",
+        "phone" : 9007080890,
+        "experience" : 5
+}
+{
+        "_id" : ObjectId("6059b8eeccc2d4c433544804"),
+        "fname" : "Mohan",
+        "lname" : "Sharma",
+        "age" : 28,
+        "email" : "mohans@gmail.com",
+        "phone" : 9107080890,
+        "experience" : 6
+}
+{
+        "_id" : ObjectId("6059b9f0ccc2d4c43354480b"),
+        "fname" : "Monty",
+        "lname" : "Rhodes",
+        "age" : 25,
+        "email" : "mhodes@gmail.com",
+        "phone" : 9996680890,
+        "experience" : 6
+}
+{
+        "_id" : ObjectId("6059bfb6ccc2d4c43354480d"),
+        "fname" : "Rachel",
+        "lname" : "Smith",
+        "age" : 25,
+        "email" : "rachel@gmail.com",
+        "phone" : 9999993637,
+        "experience" : 5
+}
