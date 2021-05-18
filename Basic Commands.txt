@@ -1,0 +1,54 @@
+hdoop@ubuntu:~$ cd /home/hdoop/hadoop-3.2.1/sbin/
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ ./start-all.sh
+WARNING: Attempting to start all Apache Hadoop daemons as hdoop in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [localhost]
+Starting datanodes
+Starting secondary namenodes [ubuntu]
+Starting resourcemanager
+Starting nodemanagers
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ jps
+3473 Jps
+3121 NodeManager
+2659 SecondaryNameNode
+2949 ResourceManager
+2269 NameNode
+2431 DataNode
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls
+Found 1 items
+drwxr-xr-x   - hdoop supergroup          0 2021-05-04 03:38 aditya
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -mkdir ADITYA
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls
+Found 2 items
+drwxr-xr-x   - hdoop supergroup          0 2021-05-17 22:25 ADITYA
+drwxr-xr-x   - hdoop supergroup          0 2021-05-04 03:38 aditya
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -touchz ADITYA/test.txt
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -touchz ADITYA/test2.txt
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls ADITYA
+Found 2 items
+-rw-r--r--   1 hdoop supergroup          0 2021-05-17 22:26 ADITYA/test.txt
+-rw-r--r--   1 hdoop supergroup          0 2021-05-17 22:26 ADITYA/test2.txt
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -mkdir 1NT18IS014
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls
+Found 3 items
+drwxr-xr-x   - hdoop supergroup          0 2021-05-17 22:28 1NT18IS014
+drwxr-xr-x   - hdoop supergroup          0 2021-05-17 22:26 ADITYA
+drwxr-xr-x   - hdoop supergroup          0 2021-05-04 03:38 aditya
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -cp 1NT18IS014 ADITYA/
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls ADITYA
+Found 3 items
+drwxr-xr-x   - hdoop supergroup          0 2021-05-17 22:29 ADITYA/1NT18IS014
+-rw-r--r--   1 hdoop supergroup          0 2021-05-17 22:26 ADITYA/test.txt
+-rw-r--r--   1 hdoop supergroup          0 2021-05-17 22:26 ADITYA/test2.txt
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ gedit Aditya_1NT18IS014.txt
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls ADITYA/1NT18IS014/
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -ls ADITYA/
+Found 3 items
+drwxr-xr-x   - hdoop supergroup          0 2021-05-17 22:29 ADITYA/1NT18IS014
+-rw-r--r--   1 hdoop supergroup          0 2021-05-17 22:26 ADITYA/test.txt
+-rw-r--r--   1 hdoop supergroup          0 2021-05-17 22:26 ADITYA/test2.txt
+hdoop@ubuntu:~/hadoop-3.2.1/sbin$ hadoop fs -du ADITYA/
+0  0  ADITYA/1NT18IS014
+0  0  ADITYA/test.txt
+0  0  ADITYA/test2.txt
